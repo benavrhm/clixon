@@ -425,7 +425,7 @@ client_get_config_only(clicon_handle h,
      * Also, must use external namespace context here due to <filter stmt
      */
     if (xmldb_get0(h, db, YB_MODULE, nsc, xpath, 1, &xret, NULL) < 0) {
-	if (netconf_operation_failed(cbret, "application", "read registry")< 0)
+	if (netconf_operation_failed(cbret, "application", "read registry 0")< 0)
 	    goto done;
 	goto ok;
     }
@@ -1098,14 +1098,14 @@ from_client_get(clicon_handle h,
      */
     if (clicon_option_bool(h, "CLICON_VALIDATE_STATE_XML")){
 	if (xmldb_get0(h, "running", YB_MODULE, nsc, NULL, 1, &xret, NULL) < 0) {
-	    if (netconf_operation_failed(cbret, "application", "read registry")< 0)
+	    if (netconf_operation_failed(cbret, "application", "read registry 1")< 0)
 		goto done;
 	    goto ok;
 	}
     }
     else{
 	if (xmldb_get0(h, "running", YB_MODULE, nsc, xpath, 1, &xret, NULL) < 0) {
-	    if (netconf_operation_failed(cbret, "application", "read registry")< 0)
+	    if (netconf_operation_failed(cbret, "application", "read registry 2")< 0)
 		goto done;
 	    goto ok;
 	}
